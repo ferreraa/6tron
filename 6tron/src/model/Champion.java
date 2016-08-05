@@ -30,11 +30,39 @@ public class Champion {
 	
 	public void rotate_left()
 	{
-		angle+=10;
+		angle = (angle+10)%360;
 	}
 	
 	public void rotate_right()
 	{	
-		angle-=10;
+		angle = (angle-10)%360;
+	}
+	
+	public Point getHeadingVector()
+	{
+		Point vector = new Point();
+		vector.x = (int) Math.cos(Math.PI*angle/180);
+		vector.y = (int) Math.sin(Math.PI*angle/180);
+		return vector;
+	}
+
+	public int getSpeed()
+	{
+		return speed;
+	}
+	
+	public Point getPosition()
+	{
+		return position;
+	}
+	
+	public Color getColor()
+	{
+		return color;
+	}
+	
+	public void move()
+	{
+		//TODO voir comment on gere les déplacements (vitesse, collisions, hitbox toussa toussa)
 	}
 }
